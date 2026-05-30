@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "no_loss_auction": "file:packages/no_loss_auction"
+  }
+}

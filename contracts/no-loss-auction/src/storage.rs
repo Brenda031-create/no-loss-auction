@@ -11,7 +11,7 @@ pub enum DataKey {
 }
 
 #[contracttype]
-#[derive(Clone)]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub enum AuctionStatus {
     Active,
     Finalized,

@@ -7,6 +7,9 @@ use soroban_sdk::{contract, contractimpl, token, Address, Env, String};
 mod events;
 mod storage;
 
+#[cfg(test)]
+mod test;
+
 use crate::events::{
     AuctionCancelledEvent, AuctionCreatedEvent, AuctionFinalizedEvent, BidPlacedEvent,
     RefundClaimedEvent, RefundCreditedEvent,
@@ -30,6 +33,7 @@ impl NoLossAuction {
         env.storage().instance().set(&DataKey::NextAuctionId, &0u64);
     }
 
+    #[allow(dead_code)]
     fn require_admin(env: &Env) {
         let admin: Address = env.storage().instance().get(&DataKey::Admin).unwrap();
         admin.require_auth();
